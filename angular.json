@@ -28,13 +28,21 @@
             "assets": [
               {
                 "glob": "**/*",
+                "input": "node_modules/mlps-template/src/assets",
+                "output": "src/assets"
+              },
+              {
+                "glob": "**/*",
                 "input": "public"
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap-italia/dist/css/bootstrap-italia.min.css",
+              "node_modules/mlps-template/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
