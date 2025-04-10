@@ -4,8 +4,13 @@ import { DemoBoardComponent } from './components/demo-board/demo-board.component
 
 export const routes: Routes = [
     {
-        path: '',
-        component: HomepageComponent
+        path: 'home',
+        component: HomepageComponent,
+        data: {
+        breadcrumbItems: [
+            { link: '/home', label: 'Home' },
+        ]
+    }
     },
     {
         path: 'demo-board',
