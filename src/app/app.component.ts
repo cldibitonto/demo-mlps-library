@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
+import { MLPSFooterComponent, MLPSHeaderComponent} from 'mlps-template'
+import { BreadcrumbComponent } from "./components/breadcrumb/breadcrumb.component";
 import { RouterOutlet } from '@angular/router';
-import {MLPSFooterComponent, MLPSHeaderComponent} from 'mlps-template'
-import { WizardComponent } from "./components/wizard/wizard.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MLPSHeaderComponent, WizardComponent, MLPSFooterComponent],
+  imports: [ RouterOutlet, MLPSHeaderComponent,  MLPSFooterComponent, BreadcrumbComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
