@@ -11,13 +11,19 @@ import { MLPSWizardComponent, TabItem, TestComponent } from 'mlps-template';
 
 export class WizardComponent {
   tabList: TabItem[] = [{
-    name: 'App',
+    name: 'Prova success',
     component: TestComponent,
     showCheck: true,
   }, 
     {
-      name: 'App2',
+      name: 'Prova disabilitato',
+      component: TestComponent,
+      disabled: true
+    },
+    {
+      name: 'Prova warning',
       component: TestComponent,
       showWarning: true,
-    }]
+    },
+  ]
 }
