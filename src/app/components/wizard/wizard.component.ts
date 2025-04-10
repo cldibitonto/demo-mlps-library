@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MLPSWizardComponent, TabItem, TestComponent } from 'mlps-template';
+import { CarouselComponent } from '../carousel/carousel.component';
 
 @Component({
   selector: 'app-wizard',
@@ -22,7 +23,7 @@ export class WizardComponent {
     },
     {
       name: 'Prova warning',
-      component: TestComponent,
+      component: CarouselComponent,
       showWarning: true,
     },
   ]
