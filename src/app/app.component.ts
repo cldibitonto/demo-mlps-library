@@ -16,10 +16,10 @@ export class AppComponent {
     name: 'App',
     component: TestComponent,
     showCheck: true,
-    showWarning: true
   }, 
     {
-      name: 'app2',
-      component: TestComponent
+      name: 'App2',
+      component: TestComponent,
+      showWarning: true,
     }]
 }
