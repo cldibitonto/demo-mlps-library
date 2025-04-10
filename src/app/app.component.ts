@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {MLPSWizardComponent, TabItem, TestComponent} from 'mlps-template'
+import {MLPSHeaderComponent, MLPSWizardComponent, TabItem, TestComponent} from 'mlps-template'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TestComponent, MLPSWizardComponent],
+  imports: [RouterOutlet, MLPSWizardComponent, MLPSHeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
