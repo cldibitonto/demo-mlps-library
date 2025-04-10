@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoaderComponent } from "../loader/loader.component";
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [],
+  imports: [LoaderComponent],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss'
 })

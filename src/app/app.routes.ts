@@ -6,11 +6,7 @@ export const routes: Routes = [
     {
         path: 'home',
         component: HomepageComponent,
-        data: {
-        breadcrumbItems: [
-            { link: '/home', label: 'Home' },
-        ]
-    }
+        data: { breadcrumb: 'Home' }
     },
     {
         path: 'demo-board',
