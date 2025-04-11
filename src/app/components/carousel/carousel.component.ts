@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuCard, MLPSCarouselComponent } from 'mlps-template';
+import { MLPSCarouselComponent } from 'mlps-template';
 
 @Component({
   selector: 'app-carousel',
@@ -9,30 +9,51 @@ import { MenuCard, MLPSCarouselComponent } from 'mlps-template';
   styleUrl: './carousel.component.scss'
 })
 export class CarouselComponent {
-
-//   menuCards: MenuCard[
-//    array di oggetti da riempire tipo così:
-//    {
-//     icona: 'fa fa-user',
-//     titolo: 'Profilo',
-//     href: '/profilo',
-//     testo: 'Gestisci il tuo profilo',
-//     isEnabled: true
-//   },
-//   {
-//     icona: 'fa fa-cog',
-//     titolo: 'Impostazioni',
-//     href: '/settings',
-//     testo: 'Configura le impostazioni',
-//     isEnabled: true
-//   },
-//   {
-//     icona: 'fa fa-info',
-//     titolo: 'Info',
-//     href: '/info',
-//     testo: 'Scopri di più',
-//     isEnabled: true
-//   }
-// ];
-//   ]
-// }
+  // menuCards= [
+  //   {
+  //     idRuoloUtente: 1,
+  //     descrizioneRuoloUtente: 'Utente Base',
+  //     icona: 'assets/icons/user.svg',
+  //     titolo: 'Profilo Utente',
+  //     href: '/profilo',
+  //     testo: 'Gestisci i tuoi dati personali e aggiorna le tue informazioni.',
+  //     isEnabled: true
+  //   },
+  //   {
+  //     idRuoloUtente: 1,
+  //     descrizioneRuoloUtente: 'Utente Base',
+  //     icona: 'assets/icons/settings.svg',
+  //     titolo: 'Impostazioni',
+  //     href: '/settings',
+  //     testo: 'Configura preferenze, notifiche e privacy del tuo account.',
+  //     isEnabled: true
+  //   },
+  //   {
+  //     idRuoloUtente: 2,
+  //     descrizioneRuoloUtente: 'Amministratore',
+  //     icona: 'assets/icons/lock.svg',
+  //     titolo: 'Sicurezza',
+  //     href: '/sicurezza',
+  //     testo: 'Gestisci password, dispositivi collegati e autenticazione a due fattori.',
+  //     isEnabled: true
+  //   },
+  //   {
+  //     idRuoloUtente: 3,
+  //     descrizioneRuoloUtente: 'Guest',
+  //     icona: 'assets/icons/info.svg',
+  //     titolo: 'Info & Supporto',
+  //     href: '/info',
+  //     testo: 'Consulta le FAQ o contatta il nostro supporto clienti.',
+  //     isEnabled: true
+  //   },
+  //   {
+  //     idRuoloUtente: 3,
+  //     descrizioneRuoloUtente: 'Guest',
+  //     icona: 'assets/icons/coming-soon.svg',
+  //     titolo: 'Prossimamente',
+  //     href: '',
+  //     testo: 'Nuove funzionalità in arrivo! Resta aggiornato.',
+  //     isEnabled: false
+  //   }
+  // ];  
+}
