@@ -31,7 +31,7 @@
               formControlName="checkboxMandatory"
               class="form-check-input"
               [ngClass]="{'is-invalid': form.get('checkboxMandatory')?.invalid && form.get('checkboxMandatory')?.touched}" />
-        <label for="checkboxMandatory" class="it-label ms-1">Checkbox obbligatoria</label>
+        <label for="checkboxMandatory" class="it-label ms-1">Checkbox obbligatoria</label><span class="text-danger">*</span>
       </div>
         <div *ngIf="form.get('checkboxMandatory')?.invalid && form.get('checkboxMandatory')?.touched"
              class="invalid-feedback">
