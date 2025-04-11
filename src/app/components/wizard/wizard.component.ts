@@ -18,7 +18,7 @@ export class WizardComponent {
   
   tabList: TabItem[] = [{
     name: 'Tab success',
-    component: TestComponent,
+    component: ModalComponent,
     showCheck: true,
   }, 
     {
