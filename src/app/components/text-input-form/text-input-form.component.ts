@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
@@ -6,7 +6,7 @@ import { DropdownModule } from 'primeng/dropdown';
 @Component({
   selector: 'app-text-input-form',
   standalone: true,
-  imports: [ReactiveFormsModule, DropdownModule, NgIf],
+  imports: [ReactiveFormsModule, DropdownModule, NgIf, NgClass],
   templateUrl: './text-input-form.component.html',
   styleUrl: './text-input-form.component.scss'
 })
@@ -16,9 +16,12 @@ export class TextInputFormComponent {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      fcn: new FormControl('', [Validators.required, Validators.pattern(/\S+/)]),
-      test: new FormControl(false),
-      dd: new FormControl('', Validators.required),
+      inputTextMandatory: new FormControl('', [Validators.required]),
+      inputText: new FormControl(''),
+      checkboxMandatory: new FormControl(false, [Validators.required]),
+      checkbox: new FormControl(false),
+      dropdownMandatory: new FormControl('', [Validators.required]),
+      dropdown: new FormControl('')
     });
 
     this.options = [
@@ -29,14 +32,13 @@ export class TextInputFormComponent {
     ];
   }
 
-  onSubmit(): void {
-    this.form.markAllAsTouched();
-
+  onSubmit() {
     if (this.form.invalid) {
-      console.log('Form non valido');
-      return;
+      this.form.markAllAsTouched(); 
     }
+  }
 
-    console.log('Form Valido', this.form.value);
+  resetForm(){
+    this.form.reset();
   }
 }
