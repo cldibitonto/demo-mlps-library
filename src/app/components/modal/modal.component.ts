@@ -4,7 +4,7 @@ import { MLPSModalComponent, ModalOptions } from 'mlps-template';
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [],
+  imports: [MLPSModalComponent],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss'
 })
@@ -20,10 +20,13 @@ export class ModalComponent {
       text: 'I dati sono stati salvati correttamente.',
       showResumeButton: true,  
       resumeButtonText: 'OK', 
-      onResumeButton: () => {}
+      onResumeButton: () => {
+        this.modal.toggle();
+      },
+      onLeaveButton: () => {
+        this.modal.toggle();
+      }
     };
-
-    // Chiamata al metodo toggle con le opzioni
     this.modal.toggle(successOptions);
   }
 
@@ -37,8 +40,13 @@ export class ModalComponent {
       showLeaveButton: true,  
       resumeButtonText: 'Annulla',
       leaveButtonText: 'Esci senza salvare',
-      onResumeButton: () => {},
-      onLeaveButton: () => {}
+      onResumeButton: () => {
+        this.modal.toggle();
+      },
+      onLeaveButton: () => {
+        this.modal.toggle();
+      }
     };
+    this.modal.toggle(warningOptions);
   } 
 }

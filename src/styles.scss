@@ -1,1 +1,14 @@
 
+.c-button{
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+    box-shadow 0.2s;
+    border-radius: 6px;
+
+    &.blue{
+        color: var(--white);
+        background: var(--primary-color);
+        border: 1px solid var(--primary-color);
+    }
+}    

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MLPSWizardComponent, TabItem, TestComponent } from 'mlps-template';
 import { CarouselComponent } from '../carousel/carousel.component';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-wizard',
@@ -13,7 +14,7 @@ import { CarouselComponent } from '../carousel/carousel.component';
 export class WizardComponent {
   tabList: TabItem[] = [{
     name: 'Prova success',
-    component: TestComponent,
+    component: ModalComponent,
     showCheck: true,
   }, 
     {
