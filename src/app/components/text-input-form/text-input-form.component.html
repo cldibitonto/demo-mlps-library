@@ -1,0 +1,39 @@
+<form [formGroup]="form">
+    <div class="it-form-group">
+        <label class="it-label" for="fcn">
+            <span>Questo è un text input</span>
+        </label>
+            <input  class="form-control" type="text" id="fcn" class="form-control" formControlName="fcn"
+            [placeholder]="'Scrivi un testo'" [class.is-invalid]='true'/>
+            <div
+            class="invalid-feedback">
+            Questo campo è obbligatorio.
+            </div>
+    </div>
+    <div class="form-check mt-5">
+        <input
+        type="checkbox"
+        formControlName="test"
+        class="form-control"
+        [id]="'test'"/>
+    <label [for]="'test'" class="it-label">
+      <div class="ms-1 mt-1 mb-3">
+        {{'Checkbox'}}
+      </div>
+    </label>
+    </div>
+    <div class="it-form-group mt-5">
+        <label for="dd" class="it-label">
+          Dropdown
+          <span class="text-danger">*</span>
+        </label>
+        <p-dropdown id="dd" formControlName="dd" [options]="options"
+          optionLabel="desc" optionValue="id" placeholder="Scegli una opzione" class="form-control"
+          scrollHeight="300px" [panelStyle]="{
+            border: '1px solid var(--medium-grey)',
+            'background-color': 'white',
+            width: '103%'
+          }"/>
+    </div>
+</form>
+

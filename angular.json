@@ -38,7 +38,8 @@
             ],
             "styles": [
               "node_modules/bootstrap-italia/dist/css/bootstrap-italia.min.css",
-              "node_modules/mlps-template/src/styles.scss"
+              "node_modules/mlps-template/src/styles.scss",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": [
               "node_modules/bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js"

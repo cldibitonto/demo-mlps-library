@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MLPSWizardComponent, TabItem, TestComponent } from 'mlps-template';
 import { CarouselComponent } from '../carousel/carousel.component';
 import { ModalComponent } from '../modal/modal.component';
+import { TextInputFormComponent } from '../text-input-form/text-input-form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wizard',
@@ -12,20 +14,26 @@ import { ModalComponent } from '../modal/modal.component';
 })
 
 export class WizardComponent {
+  private readonly router = inject(Router);
+  
   tabList: TabItem[] = [{
-    name: 'Prova success',
-    component: ModalComponent,
+    name: 'Tab success',
+    component: TestComponent,
     showCheck: true,
   }, 
     {
-      name: 'Prova disabilitato',
+      name: 'Tab disabilitato',
       component: TestComponent,
       disabled: true
     },
     {
-      name: 'Prova warning',
-      component: CarouselComponent,
+      name: 'Tab warning',
+      component: TextInputFormComponent,
       showWarning: true,
     },
   ]
+
+  goToHomepage(){
+    this.router.navigate(['/home']);
+   }
 }
