@@ -1,99 +1,98 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <h3 class="mb-4">Compila il modulo</h3>
-<div class="card form-container">
-  <div class="it-form-group">
-    <label class="it-label" for="inputTextMandatory">Questo è un text input obbligatorio</label>
-    <input type="text"
-           id="inputTextMandatory"
-           formControlName="inputTextMandatory"
-           class="form-control"
-           [ngClass]="{'is-invalid': form.get('inputTextMandatory')?.invalid && form.get('inputTextMandatory')?.touched}"
-           placeholder="Scrivi un testo" />
-    <div *ngIf="form.get('inputTextMandatory')?.invalid && form.get('inputTextMandatory')?.touched"
-         class="invalid-feedback">
-      Campo obbligatorio.
-    </div>
-  </div>
-  <div class="it-form-group">
-    <label class="it-label" for="inputText">Questo è un text input facoltativo</label>
-    <input type="text"
-           id="inputText"
-           formControlName="inputText"
-           class="form-control"
-           placeholder="Scrivi un testo" />
-  </div>
-  <div class="checkbox-position">
-    <div>
-      <input type="checkbox"
-            id="checkboxMandatory"
-            formControlName="checkboxMandatory"
-            class="form-check-input"
-            [ngClass]="{'is-invalid': form.get('checkboxMandatory')?.invalid && form.get('checkboxMandatory')?.touched}" />
-      <label for="checkboxMandatory" class="it-label ms-1">Checkbox obbligatoria</label>
-      <div *ngIf="form.get('checkboxMandatory')?.invalid && form.get('checkboxMandatory')?.touched"
-          class="invalid-feedback d-block">
+  <div class="card form-container">
+    <div class="it-form-group">
+      <label class="it-label" for="inputTextMandatory">
+        Questo è un text input obbligatorio <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             id="inputTextMandatory"
+             formControlName="inputTextMandatory"
+             class="form-control"
+             [ngClass]="{'is-invalid': isInvalid('inputTextMandatory')}"
+             placeholder="Scrivi un testo" />
+      <div *ngIf="isInvalid('inputTextMandatory')" class="invalid-feedback">
         Campo obbligatorio.
       </div>
     </div>
-    <div>
-      <input type="checkbox"
-            id="checkbox"
-            formControlName="checkbox"
-            class="form-check-input" />
-      <label for="checkbox" class="it-label ms-1">Checkbox facoltativa</label>
+    <div class="it-form-group">
+      <label class="it-label" for="inputText">Questo è un text input facoltativo</label>
+      <input type="text"
+             id="inputText"
+             formControlName="inputText"
+             class="form-control"
+             placeholder="Scrivi un testo" />
     </div>
-  </div>
+    <div class="checkbox-position">
+      <div>
+        <div class="mb-2">
+        <input type="checkbox"
+              id="checkboxMandatory"
+              formControlName="checkboxMandatory"
+              class="form-check-input"
+              [ngClass]="{'is-invalid': form.get('checkboxMandatory')?.invalid && form.get('checkboxMandatory')?.touched}" />
+        <label for="checkboxMandatory" class="it-label ms-1">Checkbox obbligatoria</label>
+      </div>
+        <div *ngIf="form.get('checkboxMandatory')?.invalid && form.get('checkboxMandatory')?.touched"
+             class="invalid-feedback">
+          Campo obbligatorio.
+        </div>
+      </div>
+      <div>
+        <input type="checkbox"
+              id="checkbox"
+              formControlName="checkbox"
+              class="form-check-input" />
+        <label for="checkbox" class="it-label ms-1">Checkbox facoltativa</label>
+      </div>
+    </div>    
     <div class="it-form-group mt-5">
       <label for="dropdownMandatory" class="it-label">
         Dropdown obbligatoria <span class="text-danger">*</span>
       </label>
-    <p-dropdown id="dropdownMandatory"
-                formControlName="dropdownMandatory"
-                [options]="options"
-                optionLabel="desc"
-                optionValue="id"
-                placeholder="Scegli una opzione"
-                class="form-control"
-                [panelStyle]="{
-                  border: '1px solid var(--medium-grey)',
-                  'background-color': 'white',
-                  width: '103%'
-                }"
-                [ngClass]="{'is-invalid': form.get('dropdownMandatory')?.invalid && form.get('dropdownMandatory')?.touched}">
-    </p-dropdown>
-
-    <div *ngIf="form.get('dropdownMandatory')?.invalid && form.get('dropdownMandatory')?.touched || form.get('dropdownMandatory')?.pristine"
-         class="invalid-feedback">
-      Campo obbligatorio.
+      <p-dropdown id="dropdownMandatory"
+                  formControlName="dropdownMandatory"
+                  [options]="options"
+                  optionLabel="desc"
+                  optionValue="id"
+                  placeholder="Scegli una opzione"
+                  class="form-control"
+                  [panelStyle]="{
+                    border: '1px solid var(--medium-grey)',
+                    'background-color': 'white',
+                    width: '103%'
+                  }"
+                  [ngClass]="{'is-invalid': isInvalid('dropdownMandatory')}">
+      </p-dropdown>
+      <div *ngIf="isInvalid('dropdownMandatory')" class="invalid-feedback">
+        Campo obbligatorio.
+      </div>
+    </div>
+    <div class="it-form-group mt-3">
+      <label for="dropdown" class="it-label">
+        Dropdown facoltativa
+      </label>
+      <p-dropdown id="dropdown"
+                  formControlName="dropdown"
+                  [options]="options"
+                  optionLabel="desc"
+                  optionValue="id"
+                  placeholder="Scegli una opzione"
+                  class="form-control"
+                  [panelStyle]="{
+                    border: '1px solid var(--medium-grey)',
+                    'background-color': 'white',
+                    width: '103%'
+                  }">
+      </p-dropdown>
+    </div>
+    <div class="form-buttons">
+      <button type="button" class="btn btn-primary" (click)="resetForm()">
+        Reset
+      </button>
+      <button type="submit" class="btn btn-primary">
+        Submit
+      </button>
     </div>
   </div>
-  <div class="it-form-group mt-3">
-    <label for="dropdown" class="it-label">
-      Dropdown facoltativa
-    </label>
-    <p-dropdown id="dropdown"
-                formControlName="dropdown"
-                [options]="options"
-                optionLabel="desc"
-                optionValue="id"
-                placeholder="Scegli una opzione"
-                class="form-control"
-                [panelStyle]="{
-                  border: '1px solid var(--medium-grey)',
-                  'background-color': 'white',
-                  width: '103%'
-                }"
-                >
-    </p-dropdown>
-  </div>
-
-  <div class="form-buttons">
-    <button type="button" class="btn btn-primary" (click)="resetForm()">
-      Reset
-    </button>
-    <button type="button" class="btn btn-primary">
-      Submit
-    </button>
-  </div>
-</div>
 </form>
