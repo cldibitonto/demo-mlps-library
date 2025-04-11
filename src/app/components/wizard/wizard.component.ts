@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MLPSWizardComponent, TabItem, TestComponent } from 'mlps-template';
+import { TextInputFormComponent } from '../text-input-form/text-input-form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wizard',
@@ -10,20 +12,26 @@ import { MLPSWizardComponent, TabItem, TestComponent } from 'mlps-template';
 })
 
 export class WizardComponent {
+  private readonly router = inject(Router);
+  
   tabList: TabItem[] = [{
-    name: 'Prova success',
+    name: 'Tab success',
     component: TestComponent,
     showCheck: true,
   }, 
     {
-      name: 'Prova disabilitato',
+      name: 'Tab disabilitato',
       component: TestComponent,
       disabled: true
     },
     {
-      name: 'Prova warning',
-      component: TestComponent,
+      name: 'Tab warning',
+      component: TextInputFormComponent,
       showWarning: true,
     },
   ]
+
+  goToHomepage(){
+    this.router.navigate(['/home']);
+   }
 }

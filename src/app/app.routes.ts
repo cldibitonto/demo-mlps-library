@@ -16,5 +16,10 @@ export const routes: Routes = [
                     { link: '/demo-bord', label: 'Demo' },
                 ]
         },
+    },
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home'
     }
 ]

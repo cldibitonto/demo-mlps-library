@@ -12,7 +12,7 @@ import { LoaderComponent } from "../loader/loader.component";
 export class HomepageComponent {
 private readonly router = inject(Router);
 
- goToHomepage(){
+ goToDemo(){
   this.router.navigate(['/demo-board']);
  }
 }

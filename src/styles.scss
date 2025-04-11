@@ -1,1 +1,17 @@
+.wave{
+    background: url('../../../assets/wave.svg'),var(--white);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    padding-bottom: 3rem;
+}
 
+
+.back-arrow{
+    &:hover{
+        color: var(--primary-01);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+    }
+}
