@@ -1,34 +1,28 @@
-import { Component, ViewChild } from '@angular/core';
-import { MLPSInfoModalComponent, ModalOptions } from 'mlps-template';
+import { Component, inject } from '@angular/core';
+import { MLPSModalService, ModalOptions } from 'mlps-template';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [MLPSInfoModalComponent],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss'
 })
 export class ModalComponent {
-
-  @ViewChild(MLPSInfoModalComponent) modal!: MLPSInfoModalComponent;  
+  private readonly mlpsModalService = inject(MLPSModalService);
 
   openSuccessModal(): void {
     const successOptions: ModalOptions = {
-      size: 'lg', 
-      type: 'success',  
-      title: '',  
+      size: 'lg',
+      type: 'success',
+      title: '',
       text: 'I dati sono stati salvati correttamente.',
       showButton: true,
-      showResumeButton: true,  
-      resumeButtonText: 'OK', 
-      onResumeButton: () => {
-        this.modal.toggle();
-      },
-      onLeaveButton: () => {
-        this.modal.toggle();
-      }
+      showResumeButton: true,
+      resumeButtonText: 'OK',
+      onResumeButton: () => this.mlpsModalService.getModalComponent().toggle(),
+      onLeaveButton: () => this.mlpsModalService.getModalComponent().toggle(),
     };
-    this.modal.toggle(successOptions);
+    this.mlpsModalService.getModalComponent().toggle(successOptions);
   }
 
   openWarningModal(): void {
@@ -39,16 +33,12 @@ export class ModalComponent {
       text: 'Sei sicuro di voler uscire senza salvare?',
       showButton: true,
       showResumeButton: true,
-      showLeaveButton: true,  
+      showLeaveButton: true,
       resumeButtonText: 'Annulla',
       leaveButtonText: 'Esci senza salvare',
-      onResumeButton: () => {
-        this.modal.toggle();
-      },
-      onLeaveButton: () => {
-        this.modal.toggle();
-      }
+      onResumeButton: () => this.mlpsModalService.getModalComponent().toggle(),
+      onLeaveButton: () => this.mlpsModalService.getModalComponent().toggle(),
     };
-    this.modal.toggle(warningOptions);
-  } 
+    this.mlpsModalService.getModalComponent().toggle(warningOptions);
+  }
 }

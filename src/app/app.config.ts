@@ -18,8 +18,7 @@ export const appConfig: ApplicationConfig = {
         provide: TranslateLoader,
         useFactory: (http: HttpBackend) =>
           new MultiTranslateHttpLoader(http, [
-            { prefix: itPrefix, suffix: itSuffix },
-            { prefix: 'public/i18n/' }, 
+            { prefix: itPrefix, suffix: itSuffix }
           ]),
         deps: [HttpBackend],
       }),
