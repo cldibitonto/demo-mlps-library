@@ -12,39 +12,39 @@ export class CarouselComponent {
   menuCards= [
     {
       idRuoloUtente: 1,
-      // icona: 'assets/svg/profile.svg',
+      icona: 'assets/svg/profile.svg',
       titolo: 'Profilo Utente',
-      href: '',
+      href: 'profilo',
       testo: 'Gestisci i tuoi dati personali e aggiorna le tue informazioni.',
       isEnabled: true,
     },
     {
       idRuoloUtente: 1,
-      // icona: 'assets/svg/settings.svg',
+      icona: 'assets/svg/settings.svg',
       titolo: 'Impostazioni',
-      href: '',
+      href: 'impostazioni',
       testo: 'Configura preferenze, notifiche e privacy del tuo account.',
       isEnabled: true
     },
     {
       idRuoloUtente: 2,
-      // icona: 'assets/svg/lock-closed.svg',
+      icona: 'assets/svg/lock-closed.svg',
       titolo: 'Sicurezza',
-      href: '',
+      href: 'sicurezza',
       testo: 'Gestisci password, dispositivi collegati e autenticazione a due fattori.',
       isEnabled: true
     },
     {
       idRuoloUtente: 3,
-      // icona: 'assets/svg/info.svg',
+      icona: 'assets/svg/info.svg',
       titolo: 'Info & Supporto',
-      href: '/info',
+      href: 'info',
       testo: 'Consulta le FAQ o contatta il nostro supporto clienti.',
       isEnabled: true
     },
     {
       idRuoloUtente: 3,
-      // icona: 'assets/svg/notification-bell.svg',
+      icona: 'assets/svg/notification-bell.svg',
       titolo: 'Prossimamente',
       href: '',
       testo: 'Nuove funzionalità in arrivo! Resta aggiornato.',

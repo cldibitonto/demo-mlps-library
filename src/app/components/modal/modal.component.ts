@@ -1,16 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
-import { MLPSModalComponent, ModalOptions } from 'mlps-template';
+import { MLPSInfoModalComponent, ModalOptions } from 'mlps-template';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [MLPSModalComponent],
+  imports: [MLPSInfoModalComponent],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss'
 })
 export class ModalComponent {
 
-  @ViewChild(MLPSModalComponent) modal!: MLPSModalComponent;  
+  @ViewChild(MLPSInfoModalComponent) modal!: MLPSInfoModalComponent;  
 
   openSuccessModal(): void {
     const successOptions: ModalOptions = {
