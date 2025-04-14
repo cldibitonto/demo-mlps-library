@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { MLPSWizardComponent, TabItem, TestComponent } from 'mlps-template';
-import { CarouselComponent } from '../carousel/carousel.component';
 import { ModalComponent } from '../modal/modal.component';
 import { TextInputFormComponent } from '../text-input-form/text-input-form.component';
 import { Router } from '@angular/router';
@@ -21,11 +20,6 @@ export class WizardComponent {
       component: ModalComponent,
       showCheck: true,
     }, 
-    {
-      name: 'Tab carousel type success',
-      component: CarouselComponent,
-      showCheck: true,
-    },
     {
       name: 'Tab type disabled',
       component: TestComponent,
