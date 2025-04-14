@@ -18,6 +18,7 @@ export class ModalComponent {
       type: 'success',  
       title: '',  
       text: 'I dati sono stati salvati correttamente.',
+      showButton: true,
       showResumeButton: true,  
       resumeButtonText: 'OK', 
       onResumeButton: () => {
@@ -36,6 +37,7 @@ export class ModalComponent {
       type: 'warning',
       title: 'Attenzione!',
       text: 'Sei sicuro di voler uscire senza salvare?',
+      showButton: true,
       showResumeButton: true,
       showLeaveButton: true,  
       resumeButtonText: 'Annulla',

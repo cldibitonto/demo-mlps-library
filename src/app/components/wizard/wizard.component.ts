@@ -16,11 +16,16 @@ import { Router } from '@angular/router';
 export class WizardComponent {
   private readonly router = inject(Router);
   
-  tabList: TabItem[] = [{
-    name: 'Tab modal type success',
-    component: ModalComponent,
-    showCheck: true,
-  }, 
+    tabList: TabItem[] = [{
+      name: 'Tab modal type success',
+      component: ModalComponent,
+      showCheck: true,
+    }, 
+    {
+      name: 'Tab carousel type success',
+      component: CarouselComponent,
+      showCheck: true,
+    },
     {
       name: 'Tab type disabled',
       component: TestComponent,
@@ -30,7 +35,7 @@ export class WizardComponent {
       name: 'Tab form type warning',
       component: TextInputFormComponent,
       showWarning: true,
-    },
+    }
   ]
 
   goToHomepage(){
