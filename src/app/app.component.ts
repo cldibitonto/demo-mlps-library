@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, inject, ViewChild } from '@angular/core';
-import { MLPSBreadcrumbComponent, MLPSFooterComponent, MLPSHeaderComponent, MLPSInfoModalComponent, MLPSLoaderComponent, MLPSModalService} from 'mlps-template'
+import { AfterViewInit, Component, inject} from '@angular/core';
+import { MLPSBreadcrumbComponent, MLPSFooterComponent, MLPSHeaderComponent, MLPSInfoModalComponent, MLPSLoaderComponent, MLPSInfoModalService} from 'mlps-template'
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -11,11 +11,9 @@ import { RouterOutlet } from '@angular/router';
 })
 
 export class AppComponent implements AfterViewInit{
-  @ViewChild(MLPSInfoModalComponent) modal!: MLPSInfoModalComponent;  
-   
-  private readonly mlpsModalService = inject(MLPSModalService);
+  private readonly mlpsModalService = inject(MLPSInfoModalService);
 
   ngAfterViewInit(): void {
-    this.mlpsModalService.setModalComponent(this.modal);
+    this.mlpsModalService.getModalComponent().toggle();
   }
 }

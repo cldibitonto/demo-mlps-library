@@ -1,18 +1,19 @@
-<div class="flex flex-column">
-<div class="modal-buttons">
-    <button (click)="openSuccessModal()" class="btn btn-primary">
-        Clicca qui per vedere la modale di successo
-    </button>
-    <button (click)="openWarningModal()" class="btn btn-primary">
-        Clicca qui per vedere la modale di avviso
-    </button>
-</div>
-<div class="modal-buttons mt-4">
-    <button (click)="openSuccessModal()" class="btn btn-primary">
-        Clicca qui per vedere la modale interattiva
-    </button>
-    <button (click)="openWarningModal()" class="btn btn-primary">
-        Clicca qui per vedere la modale interattiva
-    </button>
-</div>
+<div class="d-flex flex-column ms-4">
+    <div class="modal-buttons">
+        <button (click)="openSuccessModal()" class="btn btn-primary">
+            Clicca qui per vedere la modale di successo
+        </button>
+        <button (click)="openWarningModal()" class="btn btn-primary">
+            Clicca qui per vedere la modale di avviso
+        </button>
+    </div>
+    <div class="modal-buttons mt-4">
+        <button (click)=" openInteractiveSuccessModal()" class="btn btn-primary">
+            Clicca qui per vedere la modale interattiva di successo 
+            <!-- Inserisci una notifica si successo se clicchi su un button -->
+        </button>
+        <button (click)="openFormModal()" class="btn btn-primary">
+            Clicca qui per vedere la modale interattiva con un form
+        </button>
+    </div>
 </div>

@@ -16,17 +16,17 @@ export class WizardComponent {
   private readonly router = inject(Router);
   
     tabList: TabItem[] = [{
-      name: 'Tab modal type success',
+      name: 'Success tab with modals',
       component: ModalComponent,
       showCheck: true,
     }, 
     {
-      name: 'Tab type disabled',
+      name: 'Disabled tab',
       component: TestComponent,
       disabled: true
     },
     {
-      name: 'Tab form type warning',
+      name: 'Warning tab with form',
       component: TextInputFormComponent,
       showWarning: true,
     }
