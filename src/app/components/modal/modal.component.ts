@@ -1,26 +1,29 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MLPSInfoModalService, ModalOptions } from 'mlps-template';
 import { MessageService } from 'primeng/api';
+import { DialogService, DynamicDialogRef, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ToastModule } from 'primeng/toast';
+import { FormModalComponent } from '../form-modal/form-modal.component';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [ToastModule, CommonModule],
-  providers: [MessageService],
+  imports: [ToastModule, CommonModule, ButtonModule, DynamicDialogModule],
+  providers: [MessageService, DynamicDialogRef, DialogService],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss'
 })
 export class ModalComponent {
   private readonly mlpsModalService = inject(MLPSInfoModalService);
   private readonly messageService = inject(MessageService);
+  public ref = inject(DynamicDialogRef);
+  private readonly dialogService = inject(DialogService);
 
   listaNotifiche: any[] = [];
   inputNumber = new FormControl('', [Validators.required]); 
-  enteredNumber: string = '';
-  userNumber: number= 0;
 
   //Esempio modale di successo
   openSuccessModal(): void {
@@ -92,28 +95,16 @@ export class ModalComponent {
   
 
   //Esempio modale interattiva con form 
-  openFormModal(): void {
-    const modalOptions: ModalOptions = {
-      size: 'lg',
-      type: 'success',
-      title: 'Operazione riuscita',
-      text: 'Inserisci un numero e conferma',
-      showButton: true,
-      showResumeButton: true,
-      showLeaveButton: true,
-      resumeButtonText: 'Conferma',
-      leaveButtonText: 'Esci',
-      onResumeButton: () => {
-
-        console.log('L\'utente ha cliccato su "Conferma"');
-        this.mlpsModalService.getModalComponent().toggle();
-      },
-      onLeaveButton: () => {
-        console.log('L\'tente ha cliccato su "Esci"');
-        this.mlpsModalService.getModalComponent().toggle();
-      }
-    };
-    this.mlpsModalService.getModalComponent().toggle(modalOptions);
+  openFormModal() {
+    this.dialogService.open(FormModalComponent, {
+      header: '',
+      width: '50%',
+      focusOnShow: false,
+      position: 'fixed',
+      baseZIndex: 2050,
+      closable: true,
+      data: {},
+    });
   }
 }
 
