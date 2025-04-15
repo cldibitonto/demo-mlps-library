@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MLPSBreadcrumbComponent, MLPSFooterComponent, MLPSHeaderComponent, MLPSLoaderComponent, MLPSInfoModalComponent} from 'mlps-template'
+import {Component} from '@angular/core';
+import { MLPSBreadcrumbComponent, MLPSFooterComponent, MLPSHeaderComponent, MLPSInfoModalComponent, MLPSLoaderComponent} from 'mlps-template'
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,5 +10,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 
-export class AppComponent {
+export class AppComponent{
+
 }

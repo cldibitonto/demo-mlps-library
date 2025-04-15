@@ -1,18 +1,23 @@
 import { NgClass, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 import { DropdownModule } from 'primeng/dropdown';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-text-input-form',
   standalone: true,
-  imports: [ReactiveFormsModule, DropdownModule, NgIf, NgClass],
+  imports: [ReactiveFormsModule, DropdownModule, NgIf, NgClass, ToastModule],
+  providers: [MessageService],
   templateUrl: './text-input-form.component.html',
   styleUrl: './text-input-form.component.scss'
 })
 export class TextInputFormComponent {
   form!: FormGroup;
   options: { id: number; desc: string }[] = [];
+
+  constructor(private readonly messageService: MessageService){}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -37,8 +42,6 @@ export class TextInputFormComponent {
       this.form.markAllAsTouched(); 
     }
   }
-  // Quando un controllo è segnato come "toccato", i messaggi di errore di validazione associati a quel controllo vengono visualizzati.
-
   resetForm(){
     this.form.reset();
   }
@@ -53,10 +56,17 @@ export class TextInputFormComponent {
   //   || '' assicura che se `control.value` è null o undefined, venga utilizzata una stringa vuota al suo posto.
   //   .trim() rimuove gli spazi bianchi all'inizio e alla fine della stringa.
    
-  
-    isInvalid(campo: string): boolean {
-      return !!(this.form.get(campo)?.invalid && this.form.get(campo)?.touched);
+  isInvalid(campo: string): boolean {
+    return !!(this.form.get(campo)?.invalid && this.form.get(campo)?.touched);
+  } 
+
+  showToast(){
+    if(!this.form.invalid){
+      this.messageService.add({
+        severity: 'success',
+        summary: '',
+        detail: 'Il tuo form è stato inviato!',
+      });
     }
-    //per non ripetere il codice nel template
-    
+  }
 }

@@ -1,6 +1,13 @@
 .modal-buttons{
     display: flex;
-    justify-content: center;
+    justify-self: center;
+    flex-direction: row;
     gap: 2rem;
     margin-top: 1rem;
+    width: 40rem;
 }
+
+.modal-buttons button {
+    width: 100%;
+}
+    

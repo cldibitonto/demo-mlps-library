@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { MLPSWizardComponent, TabItem, TestComponent } from 'mlps-template';
-import { CarouselComponent } from '../carousel/carousel.component';
 import { ModalComponent } from '../modal/modal.component';
 import { TextInputFormComponent } from '../text-input-form/text-input-form.component';
 import { Router } from '@angular/router';
@@ -16,21 +15,21 @@ import { Router } from '@angular/router';
 export class WizardComponent {
   private readonly router = inject(Router);
   
-  tabList: TabItem[] = [{
-    name: 'Tab modal type success',
-    component: ModalComponent,
-    showCheck: true,
-  }, 
+    tabList: TabItem[] = [{
+      name: 'Success tab with modals',
+      component: ModalComponent,
+      showCheck: true,
+    }, 
     {
-      name: 'Tab type disabled',
+      name: 'Disabled tab',
       component: TestComponent,
       disabled: true
     },
     {
-      name: 'Tab form type warning',
+      name: 'Warning tab with form',
       component: TextInputFormComponent,
       showWarning: true,
-    },
+    }
   ]
 
   goToHomepage(){

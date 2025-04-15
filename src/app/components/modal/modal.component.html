@@ -1,9 +1,20 @@
-<div class="modal-buttons">
-    <button (click)="openSuccessModal()" class="btn btn-primary">
-        Clicca qui per vedere la modale di successo
-    </button>
-    <button (click)="openWarningModal()" class="btn btn-primary">
-        Clicca qui per vedere la modale di avviso
-    </button>
-    <mlps-info-modal></mlps-info-modal>
+<div class="d-flex flex-column ms-4">
+    <div class="modal-buttons">
+        <button (click)="openSuccessModal()" class="btn btn-primary">
+            Clicca qui per vedere la modale di successo
+        </button>
+        <button (click)="openWarningModal()" class="btn btn-primary">
+            Clicca qui per vedere la modale di avviso
+        </button>
+    </div>
+    <div class="modal-buttons mt-4">
+        <button (click)=" openInteractiveModal()" class="btn btn-primary">
+            Clicca qui per vedere la modale interattiva con toast
+        </button>
+        <button (click)="openFormModal()" class="btn btn-primary">
+            Clicca qui per vedere la modale interattiva con un form
+        </button>
+    </div>
 </div>
+<p-toast position="bottom-right"></p-toast>
+
