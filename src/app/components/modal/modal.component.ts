@@ -1,17 +1,23 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MLPSInfoModalService, ModalOptions } from 'mlps-template';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
+  imports: [ToastModule, CommonModule],
+  providers: [MessageService],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss'
 })
 export class ModalComponent {
   private readonly mlpsModalService = inject(MLPSInfoModalService);
+  private readonly messageService = inject(MessageService);
 
-  message = '';
+  listaNotifiche: any[] = [];
   inputNumber = new FormControl('', [Validators.required]); 
   enteredNumber: string = '';
   userNumber: number= 0;
@@ -25,7 +31,9 @@ export class ModalComponent {
       text: 'I dati sono stati salvati correttamente.',
       showButton: true,
       showResumeButton: true,
+      showLeaveButton: true,
       resumeButtonText: 'OK',
+      leaveButtonText: 'Esci',
       onResumeButton: () => this.mlpsModalService.getModalComponent().toggle(),
       onLeaveButton: () => this.mlpsModalService.getModalComponent().toggle(),
     };
@@ -42,8 +50,8 @@ export class ModalComponent {
       showButton: true,
       showResumeButton: true,
       showLeaveButton: true,
-      resumeButtonText: 'Annulla',
-      leaveButtonText: 'Esci senza salvare',
+      resumeButtonText: 'Salva',
+      leaveButtonText: 'Abbandona',
       onResumeButton: () => this.mlpsModalService.getModalComponent().toggle(),
       onLeaveButton: () => this.mlpsModalService.getModalComponent().toggle(),
     };
@@ -51,7 +59,7 @@ export class ModalComponent {
   }
 
   //Esempio modale di successo interattiva con fn di callback
-  openInteractiveSuccessModal(): void {
+  openInteractiveModal(): void {
     const modalOptions: ModalOptions = {
       size: 'lg',
       type: 'success',
@@ -63,19 +71,25 @@ export class ModalComponent {
       resumeButtonText: 'Continua',
       leaveButtonText: 'Abbandona',
       onResumeButton: () => {
-        this.message = 'Hai scelto di continuare. Azione registrata!';
-        console.log('L\'utente ha cliccato su "Continua"');
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Complimenti!',
+          detail: 'Hai scelto di continuare.',
+        });
         this.mlpsModalService.getModalComponent().toggle();
       },
       onLeaveButton: () => {
-        this.message = 'Hai scelto di abbandonare l\'operazione.';
-        console.log('L\'tente ha cliccato su "Abbandona"');
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Attenzione!',
+          detail: 'Hai scelto di abbandonare l\'azione.',
+        });
         this.mlpsModalService.getModalComponent().toggle();
       }
     };
-
     this.mlpsModalService.getModalComponent().toggle(modalOptions);
   }
+  
 
   //Esempio modale interattiva con form 
   openFormModal(): void {

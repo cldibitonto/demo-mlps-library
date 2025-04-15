@@ -45,6 +45,7 @@
             "styles": [
               "node_modules/bootstrap-italia/dist/css/bootstrap-italia.min.css",
               "node_modules/mlps-template/src/styles.scss",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "src/styles.scss"
             ],
