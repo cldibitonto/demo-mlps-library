@@ -1,35 +1,20 @@
-<!-- <form [formGroup]="formInput" (ngSubmit)="showNumber()">
-    <div>
-        <label class="it-label" for="inputText">Inserisci un numero</label>
-        <input
-          type="text"
-          id="inputText"
-          formControlName="inputText"
-          class="form-control"
-          placeholder="Inserisci un numero"/>
-    </div>
-    <div class="flex flex-row justify-content-end gap-2 mt-4">
-      <button type="submit">Visualizza numero</button>
-      <button type="button"(click)="closeModal()">Chiudi</button>
-    </div>
-</form> -->
-
 <div class="p-body">
     <form [formGroup]="formInput">
-        <label class="it-label" for="inputText">Inserisci un numero</label>
         <input
           type="text"
           id="inputText"
           formControlName="inputText"
           class="form-control"
-          placeholder="Inserisci un numero"/>
+          placeholder="Inserisci un numero"
+          />
     </form>
 </div>
-<div class="p-dialog-footer d-flex justify-content-between">
-    <button class="btn btn-outline-primary text-uppercase" (click)="showNumber()">
-        Mostra numero
-    </button>
-    <button class="btn btn-primary text-uppercase" (click)="closeModal()">
+<div class="p-dialog-footer d-flex justify-content-between p-0 mt-4">
+    <button class="btn btn-outline-primary text-uppercase" (click)="closeModal()">
         Chiudi
     </button>
+    <button class="btn btn-primary text-uppercase" (click)="showNumber()">
+        Visualizza numero
+    </button>
 </div>
+

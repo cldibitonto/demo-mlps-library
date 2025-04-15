@@ -3,7 +3,7 @@ import { Component, inject} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MLPSInfoModalService, ModalOptions } from 'mlps-template';
 import { MessageService } from 'primeng/api';
-import { DialogService, DynamicDialogRef, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { DialogService} from 'primeng/dynamicdialog';
 import { ToastModule } from 'primeng/toast';
 import { FormModalComponent } from '../form-modal/form-modal.component';
 import { ButtonModule } from 'primeng/button';
@@ -11,15 +11,14 @@ import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [ToastModule, CommonModule, ButtonModule, DynamicDialogModule],
-  providers: [MessageService, DynamicDialogRef, DialogService],
+  imports: [ToastModule, CommonModule, ButtonModule],
+  providers: [DialogService, MessageService],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss'
 })
 export class ModalComponent {
   private readonly mlpsModalService = inject(MLPSInfoModalService);
   private readonly messageService = inject(MessageService);
-  public ref = inject(DynamicDialogRef);
   private readonly dialogService = inject(DialogService);
 
   listaNotifiche: any[] = [];
@@ -96,16 +95,20 @@ export class ModalComponent {
 
   //Esempio modale interattiva con form 
   openFormModal() {
-    this.dialogService.open(FormModalComponent, {
-      header: '',
-      width: '50%',
+    const ref = this.dialogService.open(FormModalComponent, {
+      header: 'Inserisci un numero',
+      width: '40%',
       focusOnShow: false,
       position: 'fixed',
       baseZIndex: 2050,
       closable: true,
-      data: {},
+      data: { messageService: this.messageService,},
+    });
+    ref.onClose.subscribe(() => {
+      console.log('Modale chiusa');
     });
   }
+  
 }
 
 
