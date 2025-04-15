@@ -66,7 +66,7 @@ export class ModalComponent {
     const modalOptions: ModalOptions = {
       size: 'lg',
       type: 'success',
-      title: 'Operazione riuscita',
+      title: 'Gestisci operazione',
       text: 'Vuoi continuare o abbandonare l\'azione?',
       showButton: true,
       showResumeButton: true,
