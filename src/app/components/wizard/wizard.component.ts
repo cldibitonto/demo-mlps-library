@@ -3,6 +3,7 @@ import { MLPSWizardComponent, TabItem, TestComponent } from 'mlps-template';
 import { ModalComponent } from '../modal/modal.component';
 import { TextInputFormComponent } from '../text-input-form/text-input-form.component';
 import { Router } from '@angular/router';
+import { TableComponent } from '../table/table.component';
 
 @Component({
   selector: 'app-wizard',
@@ -21,14 +22,24 @@ export class WizardComponent {
       showCheck: true,
     }, 
     {
-      name: 'Disabled tab',
-      component: TestComponent,
-      disabled: true
+      name: 'Success tab with table',
+      component: TableComponent,
+      showCheck: true,
     },
     {
       name: 'Warning tab with form',
       component: TextInputFormComponent,
       showWarning: true,
+    },
+    // {
+    //   name: 'Warning tab with upload',
+    //   component: ,
+    //   showWarning: true,
+    // },
+    {
+      name: 'Disabled tab',
+      component: TestComponent,
+      disabled: true
     }
   ]
 
