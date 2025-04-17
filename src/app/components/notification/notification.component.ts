@@ -21,6 +21,18 @@ export class NotificationComponent {
       contenuto: 'Contenuto 2',
       data:'10/04/2025',
       isLetto: false
+    },
+    {
+      titolo: 'Notifica 2',
+      contenuto: 'Contenuto 2',
+      data:'10/04/2025',
+      isLetto: false
+    },
+    {
+      titolo: 'Notifica 2',
+      contenuto: 'Contenuto 2',
+      data:'10/04/2025',
+      isLetto: false
     }
   ];
   
