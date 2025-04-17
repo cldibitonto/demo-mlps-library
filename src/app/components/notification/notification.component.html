@@ -1,5 +1,7 @@
-<mlps-notification
-  [listaNotifiche]="notifiche"
-  (notifica)="segnaComeLetta($event)"
-  (segnaNotificheLette)="segnaTutte()">
-  </mlps-notification>
+<div class="bell-position">
+  <mlps-notification
+    [listaNotifiche]="notifiche"
+    (notifica)="segnaComeLetta($event)"
+    (segnaNotificheLette)="segnaTutte()">
+    </mlps-notification>
+</div>
