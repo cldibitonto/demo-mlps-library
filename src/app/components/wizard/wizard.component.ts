@@ -4,6 +4,7 @@ import { ModalComponent } from '../modal/modal.component';
 import { TextInputFormComponent } from '../text-input-form/text-input-form.component';
 import { Router } from '@angular/router';
 import { TableComponent } from '../table/table.component';
+import { UploadFilesComponent } from '../upload-files/upload-files.component';
 
 @Component({
   selector: 'app-wizard',
@@ -31,11 +32,11 @@ export class WizardComponent {
       component: TextInputFormComponent,
       showWarning: true,
     },
-    // {
-    //   name: 'Warning tab with upload',
-    //   component: ,
-    //   showWarning: true,
-    // },
+    {
+      name: 'Warning tab with upload',
+      component: UploadFilesComponent,
+      showWarning: true,
+    },
     {
       name: 'Disabled tab',
       component: TestComponent,

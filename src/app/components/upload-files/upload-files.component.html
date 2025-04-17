@@ -1,0 +1,14 @@
+<mlps-upload
+  [fileLimit]="5"
+  [showTitle]="true"
+  [showButtonDelete]="true"
+  [isMultiUpload]="true"
+  [showIfExeedsLimit]="false"
+></mlps-upload>
+
+<!-- 
+Se voglio gestire con altre funzionalità l'upload o il delete, 
+posso aggiungere questi valori nell'html e creare funzioni ad hoc nel ts
+(filesUploaded)="uploadFiles($event)"
+(filesDeleted)="deleteFiles($event)" 
+-->
