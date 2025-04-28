@@ -1,5 +1,6 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MLPSPaginatorComponent } from 'mlps-template';
+import { MenuItem } from 'primeng/api';
 import { TableModule } from 'primeng/table';
 
 @Component({
@@ -9,7 +10,7 @@ import { TableModule } from 'primeng/table';
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
-export class TableComponent{
+export class TableComponent implements OnInit{
   pratiche = [
     {
       codice: 'PRT-00123',
@@ -47,6 +48,25 @@ export class TableComponent{
       stato: 'In attesa'
     }
   ];
+
+  actions: MenuItem[] | undefined;
+
+  ngOnInit(): void{
+    this.actions = [
+      {
+        label: 'Visualizza',
+        icon: 'pi pi-search'
+      },
+      {
+        label: 'Modifica',
+        icon: 'pi pi-pencil'
+      },
+      {
+        label: 'Elimina',
+        icon: 'pi pi-trash'
+      }
+    ];
+  }
 }
 
 
